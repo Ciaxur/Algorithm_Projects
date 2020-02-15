@@ -1,0 +1,9 @@
+# Dependency directories
+node_modules/
+
+# Visual Studio Cache/Options Directory
+.vs/
+  
+# Logs
+logs
+*.log
