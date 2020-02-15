@@ -7,12 +7,13 @@ class Block {
     constructor(pos, type) {
         // Block Properties
         this.position = pos;
-        this.type = type;           // Null: None | Target | Source | Open | Closed
+        this.type = type;           // Null: None | Target | Source | Open | Closed | Path
         this.isWall = false;        // Wall or Not
+        this.parent = null;         // Parent Block
 
         // Set Scores
-        this.g = 1;                 // G Score default is '1' | Cost of this node
-        this.f = null;              // F Score is from Node to Goal
+        this.g = 0;                 // G Score default is '0' | Cost of this node
+        this.f = 0;                 // F Score is from Node to Goal
     }
 
     /**
@@ -25,7 +26,7 @@ class Block {
 
     /**
      * Sets the Block's Type
-     * @param {string} type Type of Block (Null: None | Target | Source | Open | Closed)
+     * @param {string} type Type of Block (Null: None | Target | Source | Open | Closed | Path)
      */
     setType(type) {
         this.type = type ? type.toLocaleLowerCase() : null;
@@ -40,5 +41,16 @@ class Block {
      */
     setPosition(pos) {
         this.position = pos.copy();
+    }
+
+    /**
+     * Creates a Deep Copy
+     * @returns A Deep Copy of Current Block Object
+     */
+    copy() {
+        const newBlock = new Block(this.position.copy(), this.type);
+        newBlock.isWall = this.isWall;
+
+        return newBlock;
     }
 }

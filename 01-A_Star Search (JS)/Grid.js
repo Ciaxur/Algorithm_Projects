@@ -12,6 +12,7 @@ class Grid {
         this.sourceColor = color(0, 255, 0);        // Default is Green
         this.targetColor = color(0, 100, 100);      // Default is Teal
         this.wallColor = color(255, 125, 80);       // Default is Orange-ish
+        this.pathColor = color(73, 229, 229);       // Default is Green-ish Blue
         
         // Assign Rows and Columns
         this.rows = rows;
@@ -87,7 +88,12 @@ class Grid {
                         fill(this.targetColor);
                         rect((col) * (height / this.cols), (row) * (width / this.rows), this.rectSizeWidth, this.rectSizeHeight);
                     }
-                    
+
+                    // Path Blocks
+                    else if (block.type == 'path') {
+                        fill(this.pathColor);
+                        rect((col) * (height / this.cols), (row) * (width / this.rows), this.rectSizeWidth, this.rectSizeHeight);
+                    }
                 }
             }
         }
@@ -101,7 +107,7 @@ class Grid {
      * @param {color} sourceColor 
      * @param {color} targetColor 
      */
-    setBlockColors(openColor, closedColor, sourceColor, targetColor, wallColor) {
+    setBlockColors(openColor, closedColor, sourceColor, targetColor, wallColor, pathColor) {
         if (openColor != null) {
             this.openColor = openColor;
         }
@@ -120,6 +126,10 @@ class Grid {
 
         if (wallColor != null) {
             this.wallColor = wallColor;
+        }
+
+        if (pathColor != null) {
+            this.pathColor = pathColor;
         }
     }
 }

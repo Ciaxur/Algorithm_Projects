@@ -1,2 +1,5 @@
-- Added Button to Trigger On/Off A* Algorithm
-- Added Feature to Draw Walls
+- Added more Interactive IO
+- Updated Algorithm for better Performace
+- Added 'run' and 'start' methods in A_Star
+  - 'run' will run one epoch at a time while returning each run's path
+  - 'start' will initiate entire algorithm and return path all at once
