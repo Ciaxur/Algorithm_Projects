@@ -1,0 +1,2 @@
+- Added Button to Trigger On/Off A* Algorithm
+- Added Feature to Draw Walls
